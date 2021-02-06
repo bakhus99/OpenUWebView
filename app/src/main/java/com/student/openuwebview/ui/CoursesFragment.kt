@@ -64,13 +64,4 @@ class CoursesFragment : Fragment(R.layout.fragment_courses) {
     }
 
 
-//    override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {
-//        val webView: WebView = findViewById(R.id.webView)
-//        if (keyCode == KeyEvent.KEYCODE_BACK && webView.canGoBack()) {
-//            webView.goBack()
-//            return true
-//        }
-//        return super.onKeyDown(keyCode, event)
-//    }
-
 }
