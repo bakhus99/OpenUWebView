@@ -1,5 +1,6 @@
 package com.student.openuwebview.ui
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.graphics.Bitmap
 import android.net.Uri
@@ -17,14 +18,9 @@ import com.student.openuwebview.databinding.FragmentOpenuBinding
 private  lateinit var  progressBar: ProgressBar
 
 class OpenUFragment : Fragment(R.layout.fragment_openu) {
+    
 
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-        //retainInstance = true
-    }
-
+    @SuppressLint("SetJavaScriptEnabled")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val binding = FragmentOpenuBinding.bind(view)
@@ -41,6 +37,7 @@ class OpenUFragment : Fragment(R.layout.fragment_openu) {
                 return@setOnKeyListener true
             } else return@setOnKeyListener true
         }
+
     }
 
     private inner class MyWebViewClient : WebViewClient() {
