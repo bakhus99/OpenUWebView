@@ -30,8 +30,8 @@ class StartFragment : Fragment(R.layout.fragment_start) {
             val action = StartFragmentDirections.actionStartFragmentToLoginFragment()
             view.findNavController().navigate(action)
         }
-        binding.btnCourses.setOnClickListener {
-            val action = StartFragmentDirections.actionStartFragmentToCoursesFragment()
+        binding.tvRegister.setOnClickListener {
+            val action = StartFragmentDirections.actionStartFragmentToRegisterFragment()
             view.findNavController().navigate(action)
         }
     }

@@ -21,23 +21,31 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_login"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_margin="32dp"
         android:layout_height="wrap_content"
         android:text="login"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/btn_courses"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/OpenULogo" />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_courses"
+    <TextView
+        android:id="@+id/tv_register"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="courses"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="Don't have an account?"
+        app:layout_constraintTop_toBottomOf="@id/btn_login"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/btn_login"
-        app:layout_constraintTop_toBottomOf="@id/OpenULogo" />
+        app:layout_constraintStart_toStartOf="parent"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:textColor="@color/teal_700"
+        android:layout_margin="16dp"
+        android:textAllCaps="true"
+        />
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

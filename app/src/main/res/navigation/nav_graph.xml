@@ -12,11 +12,11 @@
             android:id="@+id/action_startFragment_to_openUFragment"
             app:destination="@id/openUFragment" />
         <action
-            android:id="@+id/action_startFragment_to_coursesFragment"
-            app:destination="@id/coursesFragment" />
-        <action
             android:id="@+id/action_startFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_startFragment_to_registerFragment"
+            app:destination="@id/registerFragment" />
     </fragment>
     <fragment
         android:id="@+id/openUFragment"
@@ -38,4 +38,8 @@
         android:id="@+id/forumFragment"
         android:name="com.student.openuwebview.ui.ForumFragment"
         android:label="Forum" />
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.student.openuwebview.ui.RegisterFragment"
+        android:label="RegisterFragment" />
 </navigation>
