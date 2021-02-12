@@ -9,30 +9,31 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
-import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.student.openuwebview.databinding.ActivityMainBinding
 
 
 class MainActivity : AppCompatActivity() {
     @SuppressLint("SetJavaScriptEnabled")
     private lateinit var navController: NavController
     private lateinit var appBarConfiguration: AppBarConfiguration
+    private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        binding = ActivityMainBinding.inflate(layoutInflater)
         setTheme(R.style.Theme_OpenUWebView)
-        setContentView(R.layout.activity_main)
+        setContentView(binding.root)
 
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         navController = navHostFragment.findNavController()
 
         appBarConfiguration = AppBarConfiguration(
-            setOf(R.id.forumFragment, R.id.chatFragment, R.id.coursesFragment,R.id.startFragment)
+            setOf(R.id.forumFragment, R.id.chatFragment, R.id.coursesFragment, R.id.startFragment,R.id.viewPagerFragment)
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
-        val navBottom: BottomNavigationView = findViewById(R.id.bottom_drawer)
 
-        navBottom.setupWithNavController(navController)
+        binding.bottomDrawer.setupWithNavController(navController)
 
     }
 
@@ -40,6 +41,9 @@ class MainActivity : AppCompatActivity() {
         return navController.navigateUp() || super.onSupportNavigateUp()
     }
 
+    fun setBottomNavigationVisibility(visibility: Int) {
+        binding.bottomDrawer.visibility = visibility
+    }
 
 
 }
