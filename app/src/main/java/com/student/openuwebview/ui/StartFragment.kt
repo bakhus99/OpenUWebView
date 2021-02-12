@@ -1,20 +1,28 @@
 package com.student.openuwebview.ui
 
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
-import androidx.fragment.app.Fragment
+import android.view.ViewGroup
 import androidx.navigation.findNavController
+import com.student.openuwebview.BaseFragment
 import com.student.openuwebview.R
 import com.student.openuwebview.databinding.FragmentStartBinding
 
-class StartFragment : Fragment(R.layout.fragment_start) {
+class StartFragment : BaseFragment() {
+
 
     private lateinit var binding: FragmentStartBinding
 
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
+    override var bottomNavigationViewVisibility = View.VISIBLE
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        val view = inflater.inflate(R.layout.fragment_start, container, false)
+        return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
