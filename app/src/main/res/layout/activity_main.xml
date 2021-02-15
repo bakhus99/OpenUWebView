@@ -19,6 +19,9 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         app:labelVisibilityMode="labeled"
+        app:itemIconTint="@color/bottom_nav_color"
+        app:itemTextColor="@color/bottom_nav_text_color"
+        android:background="@color/primary"
         app:menu="@menu/drawer_bottom_nav_menu" />
 
 </RelativeLayout>

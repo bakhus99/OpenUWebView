@@ -6,27 +6,54 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".onboarding.screens.FirstScreenPagerFragment">
 
+    <ImageView
+        android:id="@+id/image_third_screen"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:src="@drawable/third_screen"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_third_screen_title"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
+        android:id="@+id/tv_third_screen_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/oswald_bold"
+        android:text="ACCESS FROM ANYWHERE IN THE WORLD"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@id/tv_third_screen_subtitle"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:text="Third Fragment" />
+        app:layout_constraintTop_toBottomOf="@+id/image_third_screen" />
+
+    <TextView
+        android:id="@+id/tv_third_screen_subtitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/arimo_bold"
+        android:text="You can participate in online training from anywhere in the world, it is enough to have an Internet connection. This barrier-free format is convenient for both course authors and learners."
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_third_screen_title" />
 
     <TextView
         android:id="@+id/finish"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:fontFamily="@font/lemon"
         android:text="Finish"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginBottom="20dp"
+        android:textColor="@color/black"
         android:textSize="40sp"
-        android:layout_marginEnd="20dp"
-        />
-
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -14,6 +14,7 @@ abstract class BaseFragment : Fragment() {
             var mainActivity = activity as MainActivity
             mainActivity.setBottomNavigationVisibility(bottomNavigationViewVisibility)
         }
+
     }
 
     override fun onResume() {

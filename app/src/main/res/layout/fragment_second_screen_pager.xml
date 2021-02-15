@@ -10,16 +10,21 @@
         android:id="@+id/image_second_screen"
         android:layout_width="match_parent"
         android:layout_height="300dp"
-        android:src="@drawable/first_screen"
+        android:src="@drawable/second_screen"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/tv_third_screen_title"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tv_second_screen_title"
+        android:id="@+id/tv_third_screen_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Time"
+        android:fontFamily="@font/oswald_bold"
+        android:textColor="@color/black"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@id/tv_second_screen_subtitle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/image_second_screen" />
@@ -29,11 +34,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        android:layout_marginTop="16dp"
+        android:fontFamily="@font/arimo_bold"
+        android:layout_marginTop="8dp"
+        android:textColor="@color/black"
+        android:textSize="20sp"
         android:text=" Online courses can be easily combined with work or mainstream studies, without wasting time and money in case of a pass. You can choose the time convenient for you."
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_second_screen_title" />
+        app:layout_constraintTop_toBottomOf="@id/tv_third_screen_title" />
 
     <TextView
         android:id="@+id/btn_second_screen_nex"
@@ -43,6 +51,8 @@
         android:layout_marginBottom="20dp"
         android:text="Next"
         android:textSize="40sp"
+        android:fontFamily="@font/lemon"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 

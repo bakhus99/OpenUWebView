@@ -11,6 +11,7 @@ import android.view.View
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import android.widget.ProgressBar
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.student.openuwebview.R
 import com.student.openuwebview.databinding.FragmentCoursesBinding
@@ -24,6 +25,7 @@ class RegisterFragment : Fragment(R.layout.fragment_courses) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val binding = FragmentCoursesBinding.bind(view)
+        (activity as AppCompatActivity).supportActionBar?.hide()
         progressBar = binding.pbBar
         binding.webView.loadUrl("https://openu.psu.kz/auth/reg")
         binding.webView.settings.javaScriptEnabled = true

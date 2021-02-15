@@ -29,7 +29,14 @@ class MainActivity : AppCompatActivity() {
         navController = navHostFragment.findNavController()
 
         appBarConfiguration = AppBarConfiguration(
-            setOf(R.id.forumFragment, R.id.chatFragment, R.id.coursesFragment, R.id.startFragment,R.id.viewPagerFragment)
+            setOf(
+                R.id.forumFragment,
+                R.id.chatFragment,
+                R.id.coursesFragment,
+                R.id.startFragment,
+                R.id.viewPagerFragment,
+                R.id.openUFragment
+            )
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
 

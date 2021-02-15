@@ -14,15 +14,14 @@ class StartFragment : BaseFragment() {
 
     private lateinit var binding: FragmentStartBinding
 
-
     override var bottomNavigationViewVisibility = View.VISIBLE
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_start, container, false)
-        return view
+        return inflater.inflate(R.layout.fragment_start, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

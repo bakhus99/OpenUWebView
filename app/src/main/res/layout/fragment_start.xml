@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="ui.StartFragment">
+    tools:context="ui.StartFragment"
+ >
 
     <ImageView
         android:id="@+id/OpenULogo"
@@ -25,6 +26,7 @@
         android:layout_margin="32dp"
         android:layout_height="wrap_content"
         android:text="login"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

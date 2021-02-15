@@ -9,7 +9,19 @@
     <color name="white">#FFFFFFFF</color>
 
 
-    <color name="primary">#28a9ff</color>
-    <color name="secondary">#ff5a4b</color>
+    <color name="primary2">#38464e</color>
+    <color name="secondary2">#F16B5F</color>
+
+    <color name="primary">#38464e</color>
+
+
+//Colors for Bottom NavBar
+    <color name="botom_nav_selected">#28a9ff</color>
+    <color name="botom_nav_inactive">#934C46</color>
+ //Color for BottomNav Text
+    <color name="botom_nav_selected_text">#0099FF</color>
+    <color name="botom_nav_inactive_text">#C8635B</color>
+
 
 </resources>
+

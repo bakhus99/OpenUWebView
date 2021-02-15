@@ -45,7 +45,7 @@
     <fragment
         android:id="@+id/viewPagerFragment"
         android:name="com.student.openuwebview.onboarding.ViewPagerFragment"
-        android:label="ViewPagerFragment" >
+        android:label="WELCOME">
         <action
             android:id="@+id/action_viewPagerFragment_to_startFragment"
             app:destination="@id/startFragment"
