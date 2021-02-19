@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2
@@ -21,7 +22,7 @@ class ThirdScreenPagerFragment : Fragment() {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_third_screen_pager, container, false)
         val binding = FragmentThirdScreenPagerBinding.bind(view)
-
+        (activity as AppCompatActivity).supportActionBar?.hide()
 
         binding.finish.setOnClickListener {
             findNavController().navigate(R.id.action_viewPagerFragment_to_startFragment)

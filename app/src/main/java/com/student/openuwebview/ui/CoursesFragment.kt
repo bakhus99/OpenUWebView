@@ -5,30 +5,34 @@ import android.content.Intent
 import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Bundle
-import android.view.KeyEvent
-import android.view.MotionEvent
-import android.view.View
+import android.view.*
+import android.webkit.WebChromeClient
 import android.webkit.WebView
 import android.webkit.WebViewClient
+import android.widget.FrameLayout
 import android.widget.ProgressBar
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.Fragment
-import com.student.openuwebview.R
+import com.student.openuwebview.BaseFragment
 import com.student.openuwebview.databinding.FragmentCoursesBinding
 
-private  lateinit var  progressBar: ProgressBar
 
+private lateinit var progressBar: ProgressBar
+lateinit var fullScreen: View
+private var _binding: FragmentCoursesBinding? = null
+private val binding get() = _binding!!
 
-class CoursesFragment : Fragment(R.layout.fragment_courses) {
+class CoursesFragment : BaseFragment() {
+
+    override var bottomNavigationViewVisibility = View.VISIBLE
 
     @SuppressLint("SetJavaScriptEnabled")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val binding = FragmentCoursesBinding.bind(view)
         (activity as AppCompatActivity).supportActionBar?.hide()
         progressBar = binding.pbBar
         binding.webView.loadUrl("https://openu.psu.kz/courses/mycourses")
         binding.webView.settings.javaScriptEnabled = true
+        binding.webView.webChromeClient = MyChromeWebView()
         binding.webView.webViewClient = MyWebViewClient()
         WebView.setWebContentsDebuggingEnabled(false)
         binding.webView.setOnKeyListener { _, _, keyEvent ->
@@ -41,7 +45,16 @@ class CoursesFragment : Fragment(R.layout.fragment_courses) {
         }
 
     }
-    
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        _binding = FragmentCoursesBinding.inflate(inflater, container, false)
+        return binding.root
+    }
+
     private inner class MyWebViewClient : WebViewClient() {
 
         override fun shouldOverrideUrlLoading(view: WebView?, url: String?): Boolean {
@@ -67,5 +80,34 @@ class CoursesFragment : Fragment(R.layout.fragment_courses) {
 
     }
 
+    private inner class MyChromeWebView : WebChromeClient() {
+
+        override fun onShowCustomView(view: View?, callback: CustomViewCallback?) {
+            super.onShowCustomView(view, callback)
+
+            if (view is FrameLayout) {
+                fullScreen = view
+                binding.fullScreenContainer.addView(fullScreen)
+                binding.fullScreenContainer.visibility = View.VISIBLE
+                binding.mainContainer.visibility = View.GONE
+            }
+
+        }
+
+        override fun onHideCustomView() {
+            super.onHideCustomView()
+            binding.fullScreenContainer.removeView(fullScreen)
+            binding.fullScreenContainer.visibility = View.GONE
+            binding.mainContainer.visibility = View.VISIBLE
+
+        }
+
+    }
+
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
 
 }

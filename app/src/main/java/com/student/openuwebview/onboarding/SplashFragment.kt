@@ -24,7 +24,6 @@ class SplashFragment:Fragment(R.layout.fragment_splash) {
 
             }else{
                 findNavController().navigate(R.id.action_splashFragment2_to_viewPagerFragment)
-
             }
         },1)
 

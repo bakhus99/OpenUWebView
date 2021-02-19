@@ -14,6 +14,7 @@ import android.widget.ProgressBar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.student.openuwebview.R
+import com.student.openuwebview.databinding.FragmentLoginBinding
 import com.student.openuwebview.databinding.FragmentOpenuBinding
 
 private  lateinit var  progressBar: ProgressBar
@@ -24,7 +25,7 @@ class LoginFragment : Fragment(R.layout.fragment_courses) {
     @SuppressLint("SetJavaScriptEnabled")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val binding = FragmentOpenuBinding.bind(view)
+        val binding = FragmentLoginBinding.bind(view)
         (activity as AppCompatActivity).supportActionBar?.hide()
         progressBar = binding.pbBar
         binding.webView.loadUrl("https://openu.psu.kz/auth/login")

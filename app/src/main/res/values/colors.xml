@@ -22,6 +22,8 @@
     <color name="botom_nav_selected_text">#0099FF</color>
     <color name="botom_nav_inactive_text">#C8635B</color>
 
-
+    /*btn properties */
+    <color name="rippleEffect">#F80900FF</color>
+    <color name="btnColor">#0491AA</color>
 </resources>
 

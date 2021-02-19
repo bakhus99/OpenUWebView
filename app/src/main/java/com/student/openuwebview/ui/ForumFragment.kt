@@ -15,6 +15,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.student.openuwebview.R
 import com.student.openuwebview.databinding.FragmentCoursesBinding
+import com.student.openuwebview.databinding.FragmentForumBinding
 
 private lateinit var progressBar: ProgressBar
 
@@ -24,8 +25,8 @@ class ForumFragment : Fragment(R.layout.fragment_forum) {
     @SuppressLint("SetJavaScriptEnabled")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val binding = FragmentCoursesBinding.bind(view)
-        (activity as AppCompatActivity).supportActionBar?.show()
+        val binding = FragmentForumBinding.bind(view)
+        (activity as AppCompatActivity).supportActionBar?.hide()
         progressBar = binding.pbBar
         binding.webView.loadUrl("https://openu.psu.kz/forums")
         binding.webView.settings.javaScriptEnabled = true

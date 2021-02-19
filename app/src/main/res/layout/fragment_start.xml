@@ -7,17 +7,31 @@
     tools:context="ui.StartFragment"
  >
 
+    <TextView
+        android:id="@+id/Welcome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/OpenULogo"
+        android:textStyle="bold"
+        android:textColor="@color/btnColor"
+        android:text="It's time to learn"
+        android:gravity="center"
+        android:textSize="20sp"
+        />
     <ImageView
         android:id="@+id/OpenULogo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/logo_png"
+        android:src="@drawable/logo_icon"
         android:scaleType="fitCenter"
         app:layout_constraintBottom_toTopOf="@id/btn_login"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/Welcome" />
 
 
     <com.google.android.material.button.MaterialButton
@@ -26,6 +40,9 @@
         android:layout_margin="32dp"
         android:layout_height="wrap_content"
         android:text="login"
+        app:icon="@drawable/ic_login"
+        app:rippleColor="@color/rippleEffect"
+        android:backgroundTint="@color/btnColor"
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

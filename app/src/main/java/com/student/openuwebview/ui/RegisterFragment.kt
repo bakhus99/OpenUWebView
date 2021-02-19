@@ -5,26 +5,24 @@ import android.content.Intent
 import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Bundle
-import android.view.KeyEvent
-import android.view.MotionEvent
-import android.view.View
+import android.view.*
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import android.widget.ProgressBar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.student.openuwebview.R
-import com.student.openuwebview.databinding.FragmentCoursesBinding
+import com.student.openuwebview.databinding.FragmentRegisterBinding
 
 private  lateinit var  progressBar: ProgressBar
-
+private lateinit var binding: FragmentRegisterBinding
 
 class RegisterFragment : Fragment(R.layout.fragment_courses) {
 
     @SuppressLint("SetJavaScriptEnabled")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val binding = FragmentCoursesBinding.bind(view)
+        binding = FragmentRegisterBinding.bind(view)
         (activity as AppCompatActivity).supportActionBar?.hide()
         progressBar = binding.pbBar
         binding.webView.loadUrl("https://openu.psu.kz/auth/reg")
@@ -40,6 +38,14 @@ class RegisterFragment : Fragment(R.layout.fragment_courses) {
             } else return@setOnKeyListener true
         }
 
+    }
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        return super.onCreateView(inflater, container, savedInstanceState)
     }
     
     private inner class MyWebViewClient : WebViewClient() {

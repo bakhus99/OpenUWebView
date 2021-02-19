@@ -6,11 +6,5 @@
     android:layout_height="match_parent"
     tools:context=".onboarding.SplashFragment">
 
-<ImageView
-    android:id="@+id/splashScreen"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:src="@drawable/splash_image"
-    android:layout_margin="16dp"
-    />
+
 </FrameLayout>

@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/primary"
     tools:context=".onboarding.screens.FirstScreenPagerFragment">
 
     <ImageView
@@ -18,15 +19,15 @@
 
         />
 
-    <TextView
+    <com.google.android.material.textview.MaterialTextView
         android:id="@+id/tv_third_screen_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/oswald_bold"
         android:text="Massive Open Online Courses"
         app:layout_constraintEnd_toEndOf="parent"
-        android:textColor="@color/black"
         android:textSize="20sp"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toTopOf="@id/tv_second_screen_subtitle"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/image_second_screen" />

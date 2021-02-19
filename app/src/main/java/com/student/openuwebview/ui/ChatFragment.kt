@@ -14,6 +14,7 @@ import android.widget.ProgressBar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.student.openuwebview.R
+import com.student.openuwebview.databinding.FragmentChatBinding
 import com.student.openuwebview.databinding.FragmentCoursesBinding
 
 private lateinit var progressBar: ProgressBar
@@ -24,8 +25,8 @@ class ChatFragment : Fragment(R.layout.fragment_forum) {
     @SuppressLint("SetJavaScriptEnabled")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val binding = FragmentCoursesBinding.bind(view)
-        (activity as AppCompatActivity).supportActionBar?.show()
+        val binding = FragmentChatBinding.bind(view)
+        (activity as AppCompatActivity).supportActionBar?.hide()
         progressBar = binding.pbBar
         binding.webView.loadUrl("https://openu.psu.kz/chat")
         binding.webView.settings.javaScriptEnabled = true
