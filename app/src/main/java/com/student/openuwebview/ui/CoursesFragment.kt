@@ -2,9 +2,10 @@ package com.student.openuwebview.ui
 
 import android.Manifest
 import android.annotation.SuppressLint
+import android.annotation.TargetApi
+import android.app.Activity
 import android.app.DownloadManager
 import android.content.Context
-import android.content.Context.DOWNLOAD_SERVICE
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
@@ -12,7 +13,6 @@ import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.os.Environment
-import android.provider.Settings
 import android.view.*
 import android.webkit.*
 import android.widget.FrameLayout
@@ -20,12 +20,8 @@ import android.widget.ProgressBar
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat
 import androidx.core.content.ContextCompat.checkSelfPermission
-import androidx.core.content.ContextCompat.getSystemService
 import com.student.openuwebview.BaseFragment
-import com.student.openuwebview.ManagePermissions
-import com.student.openuwebview.R
 import com.student.openuwebview.databinding.FragmentCoursesBinding
 
 
@@ -33,12 +29,12 @@ private lateinit var progressBar: ProgressBar
 lateinit var fullScreen: View
 private var _binding: FragmentCoursesBinding? = null
 private val binding get() = _binding!!
-private lateinit var managePermissions: ManagePermissions
 
 
 class CoursesFragment : BaseFragment() {
 
     companion object {
+        private const val FILECHOOSER_RESULTCODE = 123
         private const val REQUEST_CODE = 1499
     }
 
@@ -53,14 +49,15 @@ class CoursesFragment : BaseFragment() {
         val list = listOf<String>(
             Manifest.permission.WRITE_EXTERNAL_STORAGE
         )
-        managePermissions = ManagePermissions(requireActivity(), list, REQUEST_CODE)
-        binding.webView.settings.javaScriptEnabled = true
-        binding.webView.settings.loadsImagesAutomatically = true
-        binding.webView.settings.domStorageEnabled = true
-        binding.webView.settings.allowContentAccess = true
-        binding.webView.settings.allowFileAccess = true
-        binding.webView.webChromeClient = MyChromeWebView()
-        binding.webView.webViewClient = MyWebViewClient()
+        binding.webView.apply {
+            settings.javaScriptEnabled = true
+            settings.loadsImagesAutomatically = true
+            settings.domStorageEnabled = true
+            settings.allowContentAccess = true
+            settings.allowFileAccess = true
+            webChromeClient = MyChromeWebView()
+            webViewClient = MyWebViewClient()
+        }
         WebView.setWebContentsDebuggingEnabled(false)
         binding.webView.setOnKeyListener { _, _, keyEvent ->
             if (keyEvent.keyCode == KeyEvent.KEYCODE_BACK && !binding.webView.canGoBack()) {
@@ -86,42 +83,26 @@ class CoursesFragment : BaseFragment() {
 
     fun downloadDialog(url:String,userAgent:String,contentDisposition:String,mimetype:String)
     {
-        //getting file name from url
         val filename = URLUtil.guessFileName(url, contentDisposition, mimetype)
-        //Alertdialog
         val builder = AlertDialog.Builder(requireContext())
-        //title for AlertDialog
         builder.setTitle("Download")
-        //message of AlertDialog
         builder.setMessage("Do you want to save $filename")
-        //if YES button clicks
         builder.setPositiveButton("Yes") { dialog, which ->
-            //DownloadManager.Request created with url.
             val request = DownloadManager.Request(Uri.parse(url))
-            //cookie
             val cookie = CookieManager.getInstance().getCookie(url)
-            //Add cookie and User-Agent to request
             request.addRequestHeader("Cookie",cookie)
             request.addRequestHeader("User-Agent",userAgent)
-            //file scanned by MediaScannar
             request.allowScanningByMediaScanner()
-            //Download is visible and its progress, after completion too.
             request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED)
-            //DownloadManager created
             val downloadmanager = activity?.getSystemService(Context.DOWNLOAD_SERVICE) as DownloadManager
-            //Saving file in Download folder
             request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS,filename)
-            //download enqued
             downloadmanager.enqueue(request)
         }
-        //If Cancel button clicks
         builder.setNegativeButton("Cancel")
         {dialog, which ->
-            //cancel the dialog if Cancel clicks
             dialog.cancel()
         }
         val dialog:AlertDialog = builder.create()
-        //alertdialog shows
         dialog.show()
     }
 
@@ -179,10 +160,63 @@ class CoursesFragment : BaseFragment() {
 
         }
 
+        override fun onShowFileChooser(
+            webView: WebView?,
+            filePathCallback: ValueCallback<Array<Uri>>?,
+            fileChooserParams: FileChooserParams?
+        ): Boolean {
+            if (uploadMessage != null) {
+                uploadMessage!!.onReceiveValue(null)
+                uploadMessage = null
+            }
+
+            uploadMessage = filePathCallback
+            openChooserActivity()
+            return true
+        }
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
+    private fun openChooserActivity() {
+        val i = Intent(Intent.ACTION_GET_CONTENT)
+        i.addCategory(Intent.CATEGORY_OPENABLE)
+        i.type = "*/*"
+        startActivityForResult(Intent.createChooser(i, "File Chooser"), FILECHOOSER_RESULTCODE)
     }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == FILECHOOSER_RESULTCODE) {
+            if (null == uploadMessage && null == uploadMessage) return
+            val result = if (data == null || resultCode != Activity.RESULT_OK) null else data.data
+            if (uploadMessage != null) {
+                onActivityResultAboveL(requestCode, resultCode, data)
+            } else if (uploadMessage != null) {
+                //uploadMessage!!.onReceiveValue(result)
+                uploadMessage = null
+            }
+        }
+    }
+
+    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+    private fun onActivityResultAboveL(requestCode: Int, resultCode: Int, intent: Intent?) {
+        if (requestCode != FILECHOOSER_RESULTCODE || uploadMessage == null)
+            return
+        var results: Array<Uri>? = null
+        if (resultCode == Activity.RESULT_OK) {
+            if (intent != null) {
+                val dataString = intent.dataString
+                val clipData = intent.clipData
+                if (clipData != null) {
+                    results = Array(clipData.itemCount) { i ->
+                        clipData.getItemAt(i).uri
+                    }
+                }
+                if (dataString != null)
+                    results = arrayOf(Uri.parse(dataString))
+            }
+        }
+        uploadMessage!!.onReceiveValue(results)
+        uploadMessage = null
+    }
+
 }

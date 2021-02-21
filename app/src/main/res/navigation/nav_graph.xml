@@ -21,15 +21,15 @@
     <fragment
         android:id="@+id/openUFragment"
         android:name="com.student.openuwebview.ui.OpenUFragment"
-        android:label="OpenUFragment" />
+        android:label="OpenU" />
     <fragment
         android:id="@+id/coursesFragment"
         android:name="com.student.openuwebview.ui.CoursesFragment"
-        android:label="CoursesFragment" />
+        android:label="Courses" />
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.student.openuwebview.ui.LoginFragment"
-        android:label="LoginFragment" />
+        android:label="Login" />
     <fragment
         android:id="@+id/chatFragment"
         android:name="com.student.openuwebview.ui.ChatFragment"
@@ -41,7 +41,7 @@
     <fragment
         android:id="@+id/registerFragment"
         android:name="com.student.openuwebview.ui.RegisterFragment"
-        android:label="RegisterFragment" />
+        android:label="Register" />
     <fragment
         android:id="@+id/viewPagerFragment"
         android:name="com.student.openuwebview.onboarding.ViewPagerFragment"
