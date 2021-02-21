@@ -1,6 +1,8 @@
 package com.student.openuwebview
 
 import android.annotation.SuppressLint
+import android.app.DownloadManager
+import android.content.Context
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
@@ -41,6 +43,8 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
 
         binding.bottomDrawer.setupWithNavController(navController)
+
+       // val downloadmanager = getSystemService(Context.DOWNLOAD_SERVICE) as DownloadManager
 
     }
 

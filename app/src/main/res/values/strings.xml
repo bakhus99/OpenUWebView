@@ -1,4 +1,9 @@
 <resources>
-    <string name="app_name">OpenUWebView</string>
+    <string name="app_name">OpenU</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+    <string name="external_storage_permission_rationale">The app will not be able to read/write files if the storage permission is denied. Please enable it in settings.</string>
+    <string name="permission_request">Read External Storage is a crucial permission for the app\'s functionality. Please enable it in your settings to be able to use this app.</string>
+    <string name="show_settings">Show Settings</string>
 </resources>
