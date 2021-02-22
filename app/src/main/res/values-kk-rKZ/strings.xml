@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">OpenU</string>
+    <string name="external_storage_permission_rationale">Сақтауға рұқсат берілмесе, қолданба файлдарды оқи алмайды / жаза алмайды. Параметрлерде қосыңыз.</string>
+    <string name="permission_request">Сыртқы жадты оқу - бұл қосымшаның жұмысына маңызды рұқсат. Бұл қолданбаны пайдалану үшін оны өз параметрлеріңізде қосыңыз.</string>
+    <string name="show_settings">Параметрлерді көрсету</string>
+    <string name="download">Жүктеу</string>
+    <string name="yes">Иә</string>
+    <string name="cancel">Бас тарту</string>
+    <string name="massive_open_online_courses">Жаппай ашық онлайн курстар</string>
+    <string name="first_screen_subtitle">Бұл өз ісінің үздік сарапшыларының тәжірибесіне қол жеткізу, олардың курстары нақты мысалдарға және жедел кері байланысқа толы.</string>
+    <string name="next">Келесі</string>
+    <string name="time">Уақыт</string>
+    <string name="second_screen_subtitle">Желідегі курстарды оқумен немесе жалпы оқумен оңай біріктіруге болады, егер рұқсат болса, уақыт пен ақшаны жоғалтпайды. Сіз өзіңізге ыңғайлы уақытты өзіңіз таңдайсыз.</string>
+    <string name="access_from_anywhere_in_the_world">ӘЛЕМНІҢ КЕЗ КЕЛГЕН НҮКТЕСІНЕН КІРУ</string>
+    <string name="third_sceen_subtitle">Сіз онлайн-тренингке әлемнің кез келген нүктесінен қатыса аласыз, Интернетке қосылу жеткілікті. Бұл кедергісіз формат курс авторларына да, студенттерге де ыңғайлы.</string>
+    <string name="finish">Соңы</string>
+    <string name="it_s_time_to_learn">Оқу уақыты келді</string>
+    <string name="login">Кіру</string>
+    <string name="don_t_have_an_account">Есептік жазбаңыз жоқ па?</string>
+    <string name="welcome">Қош келдіңіз</string>
+    <string name="courses">Курстар</string>
+    <string name="chat">Чат</string>
+    <string name="forum">Форум</string>
+    <string name="opnenu_logo">opnenU logo</string>
+</resources>

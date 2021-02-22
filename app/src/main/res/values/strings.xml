@@ -1,9 +1,26 @@
 <resources>
     <string name="app_name">OpenU</string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-
 
     <string name="external_storage_permission_rationale">The app will not be able to read/write files if the storage permission is denied. Please enable it in settings.</string>
     <string name="permission_request">Read External Storage is a crucial permission for the app\'s functionality. Please enable it in your settings to be able to use this app.</string>
     <string name="show_settings">Show Settings</string>
+    <string name="download">Download</string>
+    <string name="yes">Yes</string>
+    <string name="cancel">Cancel</string>
+    <string name="massive_open_online_courses">Massive Open Online Courses</string>
+    <string name="first_screen_subtitle">This is access to the experience of the best experts in their field, whose courses are full of concrete examples and instant feedback.</string>
+    <string name="next">Next</string>
+    <string name="time">Time</string>
+    <string name="second_screen_subtitle">Online courses can be easily combined with work or mainstream studies, without wasting time and money in case of a pass. You can choose the time convenient for you.</string>
+    <string name="access_from_anywhere_in_the_world">ACCESS FROM ANYWHERE IN THE WORLD</string>
+    <string name="third_sceen_subtitle">You can participate in online training from anywhere in the world, it is enough to have an Internet connection. This barrier-free format is convenient for both course authors and learners.</string>
+    <string name="finish">Finish</string>
+    <string name="it_s_time_to_learn">It\'s time to learn</string>
+    <string name="login">login</string>
+    <string name="don_t_have_an_account">Don\'t have an account?</string>
+    <string name="welcome">Welcome</string>
+    <string name="courses">Courses</string>
+    <string name="chat">Chat</string>
+    <string name="forum">Forum</string>
+    <string name="opnenu_logo">opnenU logo</string>
 </resources>

@@ -27,14 +27,12 @@ import androidx.fragment.app.Fragment
 import com.student.openuwebview.R
 import com.student.openuwebview.databinding.FragmentChatBinding
 
-
-private lateinit var progressBar: ProgressBar
-
-
 var uploadMessage: ValueCallback<Array<Uri>>? = null
 
 
 class ChatFragment : Fragment(R.layout.fragment_forum) {
+
+    private lateinit var progressBar: ProgressBar
 
     companion object {
         private const val FILECHOOSER_RESULTCODE = 1
@@ -49,9 +47,9 @@ class ChatFragment : Fragment(R.layout.fragment_forum) {
         binding.webView.apply {
             loadUrl("https://openu.psu.kz/chat")
             settings.javaScriptEnabled = true
-            settings.domStorageEnabled = true;
-            settings.allowContentAccess = true;
-            settings.allowFileAccess = true;
+            settings.domStorageEnabled = true
+            settings.allowContentAccess = true
+            settings.allowFileAccess = true
             webViewClient = MyWebViewClient()
             webChromeClient = MyChromeClient()
         }
@@ -67,7 +65,7 @@ class ChatFragment : Fragment(R.layout.fragment_forum) {
                 } else {
                     ActivityCompat.requestPermissions(
                         requireActivity(),
-                        arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE),
+                        arrayOf(WRITE_EXTERNAL_STORAGE),
                         1
                     )
                 }
@@ -86,7 +84,7 @@ class ChatFragment : Fragment(R.layout.fragment_forum) {
         }
     }
 
-    fun downloadDialog(
+    private fun downloadDialog(
         url: String,
         userAgent: String,
         contentDisposition: String,
@@ -94,9 +92,9 @@ class ChatFragment : Fragment(R.layout.fragment_forum) {
     ) {
         val filename = URLUtil.guessFileName(url, contentDisposition, mimetype)
         val builder = AlertDialog.Builder(requireContext())
-        builder.setTitle("Download")
+        builder.setTitle(getString(R.string.download))
         builder.setMessage("Do you want to save $filename")
-        builder.setPositiveButton("Yes") { dialog, which ->
+        builder.setPositiveButton(getString(R.string.yes)) { dialog, which ->
             val request = DownloadManager.Request(Uri.parse(url))
             val cookie = CookieManager.getInstance().getCookie(url)
             request.addRequestHeader("Cookie", cookie)
@@ -108,7 +106,7 @@ class ChatFragment : Fragment(R.layout.fragment_forum) {
             request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, filename)
             downloadmanager.enqueue(request)
         }
-        builder.setNegativeButton("Cancel")
+        builder.setNegativeButton(getString(R.string.cancel))
         { dialog, which ->
             dialog.cancel()
         }
@@ -167,7 +165,7 @@ class ChatFragment : Fragment(R.layout.fragment_forum) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == FILECHOOSER_RESULTCODE) {
             if (null == uploadMessage && null == uploadMessage) return
-            val result = if (data == null || resultCode != Activity.RESULT_OK) null else data.data
+            //val result = if (data == null || resultCode != Activity.RESULT_OK) null else data.data
             if (uploadMessage != null) {
                 onActivityResultAboveL(requestCode, resultCode, data)
             } else if (uploadMessage != null) {

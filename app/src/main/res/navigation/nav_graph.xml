@@ -7,7 +7,7 @@
     <fragment
         android:id="@+id/startFragment"
         android:name="com.student.openuwebview.ui.StartFragment"
-        android:label="Welcome">
+        android:label="@string/welcome">
         <action
             android:id="@+id/action_startFragment_to_openUFragment"
             app:destination="@id/openUFragment" />
@@ -25,19 +25,19 @@
     <fragment
         android:id="@+id/coursesFragment"
         android:name="com.student.openuwebview.ui.CoursesFragment"
-        android:label="Courses" />
+        android:label="@string/courses" />
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.student.openuwebview.ui.LoginFragment"
-        android:label="Login" />
+        android:label="@string/login" />
     <fragment
         android:id="@+id/chatFragment"
         android:name="com.student.openuwebview.ui.ChatFragment"
-        android:label="Chat" />
+        android:label="@string/chat" />
     <fragment
         android:id="@+id/forumFragment"
         android:name="com.student.openuwebview.ui.ForumFragment"
-        android:label="Forum" />
+        android:label="@string/forum" />
     <fragment
         android:id="@+id/registerFragment"
         android:name="com.student.openuwebview.ui.RegisterFragment"

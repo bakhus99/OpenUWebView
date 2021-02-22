@@ -21,10 +21,9 @@ import androidx.fragment.app.Fragment
 import com.student.openuwebview.R
 import com.student.openuwebview.databinding.FragmentForumBinding
 
-private lateinit var progressBar: ProgressBar
-
-
 class ForumFragment : Fragment(R.layout.fragment_forum) {
+
+    private lateinit var progressBar: ProgressBar
 
     companion object {
         private const val FILECHOOSER_RESULTCODE = 1

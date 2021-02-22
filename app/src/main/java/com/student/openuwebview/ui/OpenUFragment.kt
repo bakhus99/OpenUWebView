@@ -15,10 +15,10 @@ import androidx.fragment.app.Fragment
 import com.student.openuwebview.R
 import com.student.openuwebview.databinding.FragmentOpenuBinding
 
-private  lateinit var  progressBar: ProgressBar
 
 class OpenUFragment : Fragment(R.layout.fragment_openu) {
-    
+
+    private lateinit var progressBar: ProgressBar
 
     @SuppressLint("SetJavaScriptEnabled")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

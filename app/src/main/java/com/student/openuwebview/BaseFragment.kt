@@ -11,7 +11,7 @@ abstract class BaseFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         if (activity is MainActivity) {
-            var mainActivity = activity as MainActivity
+            val mainActivity = activity as MainActivity
             mainActivity.setBottomNavigationVisibility(bottomNavigationViewVisibility)
         }
 
@@ -20,7 +20,7 @@ abstract class BaseFragment : Fragment() {
     override fun onResume() {
         super.onResume()
         if (activity is MainActivity) {
-            var mainActivity = activity as MainActivity
+            val mainActivity = activity as MainActivity
             mainActivity.setBottomNavigationVisibility(bottomNavigationViewVisibility)
         }
     }

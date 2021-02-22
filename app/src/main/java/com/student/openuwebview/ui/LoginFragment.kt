@@ -17,10 +17,11 @@ import com.student.openuwebview.R
 import com.student.openuwebview.databinding.FragmentLoginBinding
 import com.student.openuwebview.databinding.FragmentOpenuBinding
 
-private  lateinit var  progressBar: ProgressBar
 
 
 class LoginFragment : Fragment(R.layout.fragment_courses) {
+
+    private  lateinit var  progressBar: ProgressBar
 
     @SuppressLint("SetJavaScriptEnabled")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

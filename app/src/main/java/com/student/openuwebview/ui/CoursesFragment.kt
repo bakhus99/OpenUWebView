@@ -22,16 +22,16 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat.checkSelfPermission
 import com.student.openuwebview.BaseFragment
+import com.student.openuwebview.R
 import com.student.openuwebview.databinding.FragmentCoursesBinding
-
 
 private lateinit var progressBar: ProgressBar
 lateinit var fullScreen: View
 private var _binding: FragmentCoursesBinding? = null
 private val binding get() = _binding!!
 
-
 class CoursesFragment : BaseFragment() {
+
 
     companion object {
         private const val FILECHOOSER_RESULTCODE = 123
@@ -81,25 +81,30 @@ class CoursesFragment : BaseFragment() {
         }
     }
 
-    fun downloadDialog(url:String,userAgent:String,contentDisposition:String,mimetype:String)
-    {
+    private fun downloadDialog(
+        url: String,
+        userAgent: String,
+        contentDisposition: String,
+        mimetype: String
+    ) {
         val filename = URLUtil.guessFileName(url, contentDisposition, mimetype)
         val builder = AlertDialog.Builder(requireContext())
-        builder.setTitle("Download")
+        builder.setTitle(getString(R.string.download))
         builder.setMessage("Do you want to save $filename")
-        builder.setPositiveButton("Yes") { dialog, which ->
+        builder.setPositiveButton(getString(R.string.yes)) { dialog, which ->
             val request = DownloadManager.Request(Uri.parse(url))
             val cookie = CookieManager.getInstance().getCookie(url)
-            request.addRequestHeader("Cookie",cookie)
-            request.addRequestHeader("User-Agent",userAgent)
+            request.addRequestHeader("Cookie", cookie)
+            request.addRequestHeader("User-Agent", userAgent)
             request.allowScanningByMediaScanner()
             request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED)
-            val downloadmanager = activity?.getSystemService(Context.DOWNLOAD_SERVICE) as DownloadManager
-            request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS,filename)
+            val downloadmanager =
+                activity?.getSystemService(Context.DOWNLOAD_SERVICE) as DownloadManager
+            request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, filename)
             downloadmanager.enqueue(request)
         }
-        builder.setNegativeButton("Cancel")
-        {dialog, which ->
+        builder.setNegativeButton(getString(R.string.cancel))
+        { dialog, which ->
             dialog.cancel()
         }
         val dialog:AlertDialog = builder.create()
@@ -191,7 +196,6 @@ class CoursesFragment : BaseFragment() {
             if (uploadMessage != null) {
                 onActivityResultAboveL(requestCode, resultCode, data)
             } else if (uploadMessage != null) {
-                //uploadMessage!!.onReceiveValue(result)
                 uploadMessage = null
             }
         }

@@ -16,15 +16,15 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toTopOf="@id/tv_third_screen_title"
-
-        />
+        android:contentDescription="@string/massive_open_online_courses" />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/tv_third_screen_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/oswald_bold"
-        android:text="Massive Open Online Courses"
+        android:fontFamily="@font/arimo_bold"
+        android:text="@string/massive_open_online_courses"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         android:textSize="20sp"
         android:textColor="@color/black"
@@ -38,8 +38,8 @@
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         android:layout_marginTop="16dp"
+        android:text="@string/first_screen_subtitle"
         android:fontFamily="@font/arimo_bold"
-        android:text="This is access to the experience of the best experts in their field, whose courses are full of concrete examples and instant feedback."
         android:textColor="@color/black"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -54,7 +54,7 @@
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="20dp"
         android:fontFamily="@font/lemon"
-        android:text="Next"
+        android:text="@string/next"
         android:textColor="@color/black"
         android:textSize="40sp"
         app:layout_constraintBottom_toBottomOf="parent"
